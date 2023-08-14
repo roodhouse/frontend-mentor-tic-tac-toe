@@ -40,7 +40,7 @@ function App() {
           <div id='gameOnWrapper' className='hidden'>
             <GameOn />
           </div>
-          <div id='modulesWrapper'>
+          <div id='modulesWrapper' className='hidden'>
             <Modules />
           </div>
 
