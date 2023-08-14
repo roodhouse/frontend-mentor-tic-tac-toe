@@ -1,5 +1,6 @@
 import React from 'react'
 import Lost from './theModules/Lost'
+import Won from './theModules/Won'
 
 function Modules() {
   return (
@@ -8,6 +9,9 @@ function Modules() {
             <div id="modulesBackground" className='bg-black h-screen opacity-50 absolute top-0 left-0 w-full'/>
             <div id="lostModuleWrapper" className='w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
                 <Lost />
+            </div>
+            <div id="wonModuleWrapper" className='w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
+                <Won />
             </div>
         </div>
     </>
