@@ -9,6 +9,8 @@ function VsHuman({competitionChoice}) {
       competitionChoice('Human')
       document.getElementById('newGameWrapper').classList.add('hidden')
       document.getElementById('gameOnWrapper').classList.remove('hidden')
+      document.getElementById('mainContainer').classList.remove('py-[119px]', 'justify-center')
+      document.getElementById('mainContainer').classList.add('py-6', 'justify-start')
     })
   })
 
