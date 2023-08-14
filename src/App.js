@@ -5,7 +5,6 @@ import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
 // game solo designs
-  // lost module
   // won module
   // restart module
   // tied module
@@ -40,7 +39,7 @@ function App() {
           <div id='gameOnWrapper' className='hidden'>
             <GameOn />
           </div>
-          <div id='modulesWrapper' className='hidden'>
+          <div id='modulesWrapper' className=''>
             <Modules />
           </div>
 
