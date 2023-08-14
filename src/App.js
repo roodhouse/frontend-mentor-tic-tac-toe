@@ -4,7 +4,6 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 
 // game solo designs
-  // active states
   // lost module
   // won module
   // restart module
