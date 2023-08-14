@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
 import './App.css';
 import NewGame from './components/NewGame';
+import GameOn from './components/GameOn';
 
-// New game screen all formats first
-  // add event listeners and state to buttons 
 // game solo designs
   // lost module
   // won module
@@ -18,17 +17,27 @@ import NewGame from './components/NewGame';
 function App() {
 
   const [choice, setChoice] = useState('O')
+  const [theCompetition, setTheCompetition] = useState('')
 
   function playerChoice(selection){
     setChoice(selection)
   }
+
+  function competitionChoice(selection) {
+    setTheCompetition(selection)
+  }
+
+  console.log(theCompetition)
 
   return (
     <div className="App" id='app'>
       <div id='mainWrapper'>
         <div id='mainContainer' className='h-screen bg-darkNavy flex flex-col justify-center items-center px-6 py-[119px]'>
           <div id='newGameWrapper'>
-            <NewGame playerChoice={playerChoice} />
+            <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
+          </div>
+          <div id='gameOnWrapper' className='hidden'>
+            <GameOn />
           </div>
         </div>
       </div>

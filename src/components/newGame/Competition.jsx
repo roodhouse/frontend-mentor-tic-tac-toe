@@ -2,15 +2,15 @@ import React from 'react'
 import VsComputer from './competition/VsComputer'
 import VsHuman from './competition/VsHuman'
 
-function Competition() {
+function Competition({competitionChoice}) {
   return (
     <>
         <div id="competitionContainer">
             <div id="vsCPUWrapper" className='mb-4'>
-                <VsComputer />
+                <VsComputer competitionChoice={competitionChoice} />
             </div>
             <div id="vsHumanWrapper">
-                <VsHuman />
+                <VsHuman competitionChoice={competitionChoice} />
             </div>
         </div>
     </>
