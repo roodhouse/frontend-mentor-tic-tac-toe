@@ -7,7 +7,7 @@ function GameOn() {
   return (
     <>
         <div id="gameOnContainer">
-            <div id="gameOnHeaderWrapper" className='mb-16'>
+            <div id="gameOnHeaderWrapper" className='mb-16 md:mb-5'>
                 <GameOnHeader />
             </div>
             <div id="gameGridWrapper">

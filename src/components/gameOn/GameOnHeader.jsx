@@ -6,11 +6,11 @@ import Refresh from './gameOnHeader/Refresh'
 function GameOnHeader() {
   return (
     <>
-        <div id="gameOnHeaderContainer" className='flex w-[328px] justify-between items-center'>
-            <div id="gameOnLogoWrapper">
+        <div id="gameOnHeaderContainer" className='flex w-[328px] justify-between items-center md:w-[460px]'>
+            <div id="gameOnLogoWrapper" className='md:mr-[85px]'>
                 <Logo />
             </div>
-            <div id="gameOnTurnWrapper">
+            <div id="gameOnTurnWrapper" className='md:mr-[108px]'>
                 <Turn />
             </div>
             <div id="refreshWrapper">

@@ -4,6 +4,7 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 
 // game solo designs
+  // active states
   // lost module
   // won module
   // restart module
@@ -31,8 +32,8 @@ function App() {
 
   return (
     <div className="App" id='app'>
-      <div id='mainWrapper'>
-        <div id='mainContainer' className='h-screen bg-darkNavy flex flex-col justify-center items-center px-6 py-[119px]'>
+      <div id='mainWrapper' className='flex justify-center bg-darkNavy'>
+        <div id='mainContainer' className='max-w-[375px] h-screen bg-darkNavy flex flex-col justify-center items-center px-6 py-[119px] md:max-w-[460px] md:py-[200px]'>
           <div id='newGameWrapper'>
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
