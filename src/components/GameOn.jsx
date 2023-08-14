@@ -1,6 +1,7 @@
 import React from 'react'
 import GameOnHeader from './gameOn/GameOnHeader'
 import GameGrid from './gameOn/GameGrid'
+import ScoreCard from './gameOn/ScoreCard'
 
 function GameOn() {
   return (
@@ -11,6 +12,9 @@ function GameOn() {
             </div>
             <div id="gameGridWrapper">
                 <GameGrid />
+            </div>
+            <div id="scoreCardWrapper">
+                <ScoreCard />
             </div>
         </div>
     </>
