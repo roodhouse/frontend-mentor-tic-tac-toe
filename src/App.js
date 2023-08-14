@@ -1,11 +1,46 @@
+import React, {useState} from 'react'
 import './App.css';
+import NewGame from './components/NewGame';
+import GameOn from './components/GameOn';
+
+// game solo designs
+  // lost module
+  // won module
+  // restart module
+  // tied module
+// game multiplayer designs
+  // lost module
+  // won module
+  // restart module
+  // tied module
 
 function App() {
+
+  const [choice, setChoice] = useState('O')
+  const [theCompetition, setTheCompetition] = useState('')
+
+  function playerChoice(selection){
+    setChoice(selection)
+  }
+
+  function competitionChoice(selection) {
+    setTheCompetition(selection)
+  }
+
+  console.log(theCompetition)
+
   return (
     <div className="App" id='app'>
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+      <div id='mainWrapper'>
+        <div id='mainContainer' className='h-screen bg-darkNavy flex flex-col justify-center items-center px-6 py-[119px]'>
+          <div id='newGameWrapper'>
+            <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
+          </div>
+          <div id='gameOnWrapper' className='hidden'>
+            <GameOn />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
