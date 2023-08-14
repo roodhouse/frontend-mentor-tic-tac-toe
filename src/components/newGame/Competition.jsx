@@ -6,7 +6,7 @@ function Competition() {
   return (
     <>
         <div id="competitionContainer">
-            <div id="vsCPUWrapper">
+            <div id="vsCPUWrapper" className='mb-4'>
                 <VsComputer />
             </div>
             <div id="vsHumanWrapper">
