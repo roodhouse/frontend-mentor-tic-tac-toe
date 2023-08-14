@@ -3,7 +3,7 @@ import Logo from './Logo'
 import PickSide from './newGame/PickSide'
 import Competition from './newGame/Competition'
 
-function NewGame() {
+function NewGame({playerChoice}) {
   return (
     <>
         <div id="newGameContainer" className='flex flex-col justify-center items-center'>
@@ -11,7 +11,7 @@ function NewGame() {
                 <Logo />
             </div>
             <div id='pickSideWrapper' className='mb-8 md:mb-10'>
-                <PickSide />
+                <PickSide playerChoice={playerChoice} />
             </div>
             <div id='competitionWrapper'>
                 <Competition />
