@@ -13,7 +13,8 @@ module.exports = {
       darkNavy: '#1A2A33',
       semiDarkNavy: '#1F3641',
       silver: '#A8BFC9',
-      silverHover: '#DBE8ED'
+      silverHover: '#DBE8ED',
+      black: '#000000'
     }
   },
   plugins: [],
