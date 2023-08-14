@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import './App.css';
 import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
+import Modules from './components/Modules';
 
 // game solo designs
   // lost module
@@ -39,6 +40,10 @@ function App() {
           <div id='gameOnWrapper' className='hidden'>
             <GameOn />
           </div>
+          <div id='modulesWrapper'>
+            <Modules />
+          </div>
+
         </div>
       </div>
     </div>
