@@ -5,6 +5,10 @@ import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
 // game logic
+  // new game screen logic
+  // game screen logic
+    // whos turn logic (div at top)
+    // score button logic, who is x, and o, competition is cpu or human
 
 // game multiplayer designs
   // lost module
@@ -25,6 +29,7 @@ function App() {
     setTheCompetition(selection)
   }
 
+  console.log(choice)
   console.log(theCompetition)
 
   return (
