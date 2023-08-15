@@ -4,9 +4,8 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
-// game solo designs
-  // restart module
-  // tied module
+// game logic
+
 // game multiplayer designs
   // lost module
   // won module

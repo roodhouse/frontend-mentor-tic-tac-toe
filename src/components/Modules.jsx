@@ -2,6 +2,7 @@ import React from 'react'
 import Lost from './theModules/Lost'
 import Won from './theModules/Won'
 import Restart from './theModules/Restart'
+import Tie from './theModules/Tie'
 
 function Modules() {
   return (
@@ -14,8 +15,11 @@ function Modules() {
             <div id="wonModuleWrapper" className='hidden w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
                 <Won />
             </div>
-            <div id="restartModuleWrapper" className='w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
+            <div id="restartModuleWrapper" className='hidden w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
                 <Restart />
+            </div>
+            <div id="tieModuleWrapper" className='w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
+                <Tie />
             </div>
         </div>
     </>
