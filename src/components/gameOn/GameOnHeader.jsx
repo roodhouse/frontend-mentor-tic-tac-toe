@@ -3,14 +3,14 @@ import Logo from '../Logo'
 import Turn from './gameOnHeader/Turn'
 import Refresh from './gameOnHeader/Refresh'
 
-function GameOnHeader() {
+function GameOnHeader({turn}) {
 
 
     // On click of the refresh button
     let refreshWrapper = document.getElementById('refreshWrapper')
     // if refreshWrapper is not there then we are on the main screen
     if (!refreshWrapper) {
-        console.log('main screen')
+        // console.log('main screen')
     } else {
         refreshWrapper.addEventListener('click', (e) => {
             // remove the hidden class from the modules
@@ -25,8 +25,8 @@ function GameOnHeader() {
             <div id="gameOnLogoWrapper" className='md:mr-[85px]'>
                 <Logo />
             </div>
-            <div id="gameOnTurnWrapper" className='md:mr-[108px]'>
-                <Turn />
+            <div id="gameOnTurnWrapper" className='md:mr-[108px]' >
+                <Turn turn={turn} />
             </div>
             <div id="refreshWrapper">
                 <Refresh />

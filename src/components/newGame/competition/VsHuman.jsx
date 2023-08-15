@@ -4,7 +4,6 @@ function VsHuman({competitionChoice}) {
 
   useEffect(() => {
     let vsHuman = document.getElementById('vsHumanContainer')
-    console.log(vsHuman)
     vsHuman.addEventListener('click', () => {
       competitionChoice('Human')
       document.getElementById('newGameWrapper').classList.add('hidden')

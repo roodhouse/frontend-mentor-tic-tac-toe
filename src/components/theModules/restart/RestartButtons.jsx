@@ -20,10 +20,9 @@ function RestartButtons() {
   // on restart game button click
   let restartGame = document.getElementById('restartGameWrapper')
   if (!restartGame) {
-    console.log('main screen')
+    // console.log('main screen')
   } else {
     restartGame.addEventListener('click', (e) => {
-      console.log(e.target)
       // add hidden class to modules
       document.getElementById('modulesContainer').classList.add('hidden')
       document.getElementById('restartModuleWrapper').classList.add('hidden')

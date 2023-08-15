@@ -14,7 +14,6 @@ function MarkChoice({playerChoice}) {
       console.log('hi')
     } else {
       choiceX.addEventListener('click', (e) => {
-        console.log(e.target)
         // change background of the X container
         choiceX.classList.remove('bg-darkNavy', 'hover:bg-semiDarkNavy')
         choiceX.classList.add('bg-silver')
@@ -35,9 +34,7 @@ function MarkChoice({playerChoice}) {
     if (!choiceO) {
       console.log('hi')
     } else {
-      console.log(choiceO, choiceX)
       choiceO.addEventListener('click', (e) => {
-        console.log(e.target)
         // change background of the O container
         choiceO.classList.remove('bg-darkNavy', 'hover:bg-semiDarkNavy')
         choiceO.classList.add('bg-silver')
