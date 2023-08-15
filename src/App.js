@@ -5,7 +5,6 @@ import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
 // game solo designs
-  // won module
   // restart module
   // tied module
 // game multiplayer designs
