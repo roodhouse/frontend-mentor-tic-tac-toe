@@ -9,7 +9,6 @@ import Modules from './components/Modules';
   // game screen logic
     // game grid logic
       // hover logic
-    // whos turn logic (div at top)
     // score button logic, who is x, and o, competition is cpu or human
     // on hover logic, which outline to show
 

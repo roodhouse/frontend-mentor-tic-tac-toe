@@ -16,7 +16,6 @@ function GameGrid({turn, changeTurn}) {
                     currentSquare.style.backgroundImage = 'url("./assets/icon-x.svg")'
                     let squareId = currentSquare.id
                     xArray.push(squareId)
-                    // item.removeEventListener('click')
                     changeTurn('O')
                 } else {
                     console.log('look out for the hole')
@@ -29,49 +28,6 @@ function GameGrid({turn, changeTurn}) {
             })
         })
     })
-
-       
-        
-        // gridItems.forEach((item) => {
-        //     item.addEventListener('click', (e) => {
-        //         if(!e.target.classList.contains('square')) {
-        //             if(turn === 'X') {
-        //                 let currentSquare = e.target.firstChild
-        //                 currentSquare.style.backgroundImage = 'url("./assets/icon-x.svg")'
-        //                 let squareId = currentSquare.id
-        //                 xArray.push(squareId)
-        //                 console.log(xArray)
-        //                 changeTurn('O')
-        //             } else {
-        //                 let currentSquare = e.target.firstChild
-        //                 currentSquare.style.backgroundImage = 'url("./assets/icon-o.svg")'
-        //                 let squareId = currentSquare.id
-        //                 oArray.push(squareId)
-        //                 console.log(oArray)
-        //                 changeTurn('X')
-        //             }
-        //         } else {
-        //             console.log('inside click')
-        //             if(turn === 'X') {
-        //                 let currentSquare = e.target
-        //                 let squareId = currentSquare.id
-        //                 xArray.push(squareId)
-        //                 console.log(xArray)
-        //                 currentSquare.style.backgroundImage = 'url("./assets/icon-x.svg")'
-        //                 changeTurn('O')
-        //             } else {
-        //                 let currentSquare = e.target
-        //                 currentSquare.style.backgroundImage = 'url("./assets/icon-o.svg")'
-        //                 let squareId = currentSquare.id
-        //                 oArray.push(squareId)
-        //                 console.log(oArray)
-        //                 changeTurn('X')
-        //             }
-
-        //         }
-                
-        //     })
-        // })
 
   return (
     <>
