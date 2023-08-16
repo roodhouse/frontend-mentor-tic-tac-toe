@@ -16,7 +16,12 @@ function GameOnHeader({turn}) {
             // remove the hidden class from the modules
             document.getElementById('modulesContainer').classList.remove('hidden')
             document.getElementById('restartModuleWrapper').classList.remove('hidden')
+            // remove the backgrounds of the griditems
+            let gridItems = Array.from(document.querySelectorAll('.square'))
+            gridItems.forEach((item) => {
+                item.style.backgroundImage = ''
         })
+    })
     }
     
   return (

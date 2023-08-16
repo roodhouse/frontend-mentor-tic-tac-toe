@@ -10,6 +10,7 @@ import Modules from './components/Modules';
   // game screen logic
     // game grid logic
     // score button logic, who is x, and o, competition is cpu or human
+      // make function to increment
   // module logic
 
 // game multiplayer designs
