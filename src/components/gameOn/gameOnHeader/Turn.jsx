@@ -1,6 +1,9 @@
 import React from 'react'
 
-function Turn() {
+function Turn({turn}) {
+
+  
+
   return (
     <>
         <div id="turnContainer" className='flex py-[10px] px-[15px] items-center bg-semiDarkNavy rounded-[10px] shadow-[inset_0px_-4px_0px_0px_#10212A] md:px-[30px] md:py-[13px] md:w-[140px] md:justify-center md:h-[52px]'>

@@ -4,7 +4,6 @@ function VsComputer({competitionChoice}) {
 
   useEffect(() => {
     let vsCPU = document.getElementById('vsCPUcontainer')
-    console.log(vsCPU)
     vsCPU.addEventListener('click', () => {
       competitionChoice('CPU')
       document.getElementById('newGameWrapper').classList.add('hidden')

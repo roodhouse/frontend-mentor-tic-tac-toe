@@ -1,10 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './App.css';
 import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
 // game logic
+  // new game screen logic
+  // game screen logic
+    // game grid logic
+      // hover logic
+    // whos turn logic (div at top)
+    // score button logic, who is x, and o, competition is cpu or human
+    // on hover logic, which outline to show
 
 // game multiplayer designs
   // lost module
@@ -16,7 +23,11 @@ function App() {
 
   const [choice, setChoice] = useState('O')
   const [theCompetition, setTheCompetition] = useState('')
+  const [turn, setTurn] = useState('X')
+  const [xArray, setXArray] = useState([])
+  const [oArray, setOArray] = useState([])
 
+  
   function playerChoice(selection){
     setChoice(selection)
   }
@@ -25,7 +36,11 @@ function App() {
     setTheCompetition(selection)
   }
 
-  console.log(theCompetition)
+  function changeTurn(newPlayer) {
+    setTurn(newPlayer)
+  }
+
+  
 
   return (
     <div className="App" id='app'>
@@ -35,7 +50,7 @@ function App() {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn />
+            <GameOn turn={turn} changeTurn={changeTurn}   />
           </div>
           <div id='modulesWrapper' className=''>
             <Modules />
