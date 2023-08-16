@@ -4,14 +4,9 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
-// bug: game loops through after a selection is made several times
-
 // game logic
-  // reset board on refresh confirm
-  // new game screen logic
   // game screen logic
     // game grid logic
-    // score button logic, who is x, and o, competition is cpu or human
       // make function to increment
   // module logic
 
@@ -45,6 +40,13 @@ function App() {
     setTurn(newPlayer)
   }
 
+  function roundOver(result) {
+    if (result === 'X') {
+      let score = xScore
+      setXScore(score++)
+    }
+  }
+
   return (
     <div className="App" id='app'>
       <div id='mainWrapper' className='flex justify-center bg-darkNavy'>
@@ -53,7 +55,7 @@ function App() {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} />
+            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} roundOver={roundOver} xArray={xArray} oArray={oArray} />
           </div>
           <div id='modulesWrapper' className=''>
             <Modules />
