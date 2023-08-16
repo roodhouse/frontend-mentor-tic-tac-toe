@@ -4,8 +4,6 @@ import GameGrid from './gameOn/GameGrid'
 import ScoreCard from './gameOn/ScoreCard'
 
 function GameOn({turn, changeTurn}) {
-
-    console.log('game on screen turn is ', turn)
   return (
     <>
         <div id="gameOnContainer">
@@ -13,7 +11,7 @@ function GameOn({turn, changeTurn}) {
                 <GameOnHeader turn={turn} />
             </div>
             <div id="gameGridWrapper">
-                <GameGrid changeTurn={changeTurn} turn={turn} />
+                <GameGrid turn={turn} changeTurn={changeTurn} />
             </div>
             <div id="scoreCardWrapper">
                 <ScoreCard />

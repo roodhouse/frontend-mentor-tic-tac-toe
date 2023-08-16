@@ -7,6 +7,8 @@ import Modules from './components/Modules';
 // game logic
   // new game screen logic
   // game screen logic
+    // game grid logic
+      // hover logic
     // whos turn logic (div at top)
     // score button logic, who is x, and o, competition is cpu or human
     // on hover logic, which outline to show
@@ -21,8 +23,11 @@ function App() {
 
   const [choice, setChoice] = useState('O')
   const [theCompetition, setTheCompetition] = useState('')
-  const [turn, setTurn] = useState('X') 
+  const [turn, setTurn] = useState('X')
+  const [xArray, setXArray] = useState([])
+  const [oArray, setOArray] = useState([])
 
+  
   function playerChoice(selection){
     setChoice(selection)
   }
@@ -31,17 +36,11 @@ function App() {
     setTheCompetition(selection)
   }
 
-  function changeTurn(newTurn) {
-    setTurn(newTurn)
+  function changeTurn(newPlayer) {
+    setTurn(newPlayer)
   }
 
-  // useEffect(() => {
-  //   setTurn('X')
-  // },[])
-
-  console.log(choice)
-  console.log(theCompetition)
-  console.log('turn from main ',turn)  
+  
 
   return (
     <div className="App" id='app'>
@@ -51,7 +50,7 @@ function App() {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn turn={turn} changeTurn={changeTurn} />
+            <GameOn turn={turn} changeTurn={changeTurn}   />
           </div>
           <div id='modulesWrapper' className=''>
             <Modules />

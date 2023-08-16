@@ -2,7 +2,7 @@ import React from 'react'
 
 function Turn({turn}) {
 
-  console.log('player turn is ',turn)
+  
 
   return (
     <>
