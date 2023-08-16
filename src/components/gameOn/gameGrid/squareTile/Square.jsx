@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 
 
-function Square({turn, changeTurn, index}) {
+function Square({turn, changeTurn, index, playerXarray, playerOarray}) {
     const [backgroundImage, setBackgroundImage] = useState('')
 
-    const handleClick = () => {
+    const handleClick = (e) => {
         if ( backgroundImage === '' ) {
+            console.log(e.target.id)
             if ( turn === 'X' ) {
                 setBackgroundImage('url("./assets/icon-x.svg")')
+                playerXarray(e.target.id)
                 changeTurn('O')
             } else if ( turn === 'O' ) {
                 setBackgroundImage('url("./assets/icon-o.svg")')
+                playerOarray(e.target.id)
                 changeTurn('X')
             }
         }

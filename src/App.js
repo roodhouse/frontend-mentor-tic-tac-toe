@@ -47,6 +47,18 @@ function App() {
     }
   }
 
+  function playerXarray(click) {
+    setXArray([...xArray, click])
+  }
+
+  function playerOarray(click) {
+    setXArray([...oArray, click])
+  }
+
+  console.log(`Player x: ${xArray}`)
+
+  console.log(`Player o: ${oArray}`)
+
   return (
     <div className="App" id='app'>
       <div id='mainWrapper' className='flex justify-center bg-darkNavy'>
@@ -55,7 +67,7 @@ function App() {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} roundOver={roundOver} xArray={xArray} oArray={oArray} />
+            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} roundOver={roundOver} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} />
           </div>
           <div id='modulesWrapper' className=''>
             <Modules />
