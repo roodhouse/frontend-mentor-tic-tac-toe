@@ -8,8 +8,13 @@ function GameGrid({turn, changeTurn}) {
     useEffect(() => {
         let gridItems = Array.from(document.querySelectorAll('.square'))
         gridItems.forEach((item) => {
+            if(turn === 'X') {
+                item.classList.remove('hover:bg-[url("./assets/icon-o-outline.svg")]')
+                item.classList.add('hover:bg-[url("./assets/icon-x-outline.svg")]')
+            } else if (turn === 'O') {
+                item.classList.add('hover:bg-[url("./assets/icon-o-outline.svg")]')
+            }
             item.addEventListener('click', (e) => {
-                console.log(turn)
                 if (turn === 'X') {
                     console.log('x marks the spot')
                     let currentSquare = e.target
@@ -33,7 +38,7 @@ function GameGrid({turn, changeTurn}) {
     <>
         <div id="gameGridContainer" className='flex flex-wrap justify-between'>
             <div id="squareOneContainer" className='parentSquare w-[96px] h-[96px] bg-semiDarkNavy rounded-[10px] shadow-[inset_0px_-8px_0px_0px_#10212A] flex justify-center px-[28px] py-6 mb-5 md:w-[140px] md:h-[140px] md:items-center cursor-pointer'>
-                <div id="squareOne" className='square w-10 h-10 bg-no-repeat bg-contain md:w-16 md:h-16 bg-[url("./assets/icon-x.svg")]'/>
+                <div id="squareOne" className='square w-10 h-10 bg-no-repeat bg-contain md:w-16 md:h-16'/>
             </div>
             <div id="squareTwoContainer" className='parentSquare w-[96px] h-[96px] bg-semiDarkNavy rounded-[10px] shadow-[inset_0px_-8px_0px_0px_#10212A] flex justify-center px-[28px] py-6 mb-5 md:w-[140px] md:h-[140px] md:items-center cursor-pointer'>
                 <div id="squareTwo" className='square w-10 h-10 bg-no-repeat bg-contain md:w-16 md:h-16'/>
