@@ -3,7 +3,7 @@ import GameOnHeader from './gameOn/GameOnHeader'
 import GameGrid from './gameOn/GameGrid'
 import ScoreCard from './gameOn/ScoreCard'
 
-function GameOn({turn, changeTurn}) {
+function GameOn({turn, changeTurn, theCompetition, choice, xScore, oScore, ties}) {
   return (
     <>
         <div id="gameOnContainer">
@@ -14,7 +14,7 @@ function GameOn({turn, changeTurn}) {
                 <GameGrid turn={turn} changeTurn={changeTurn} />
             </div>
             <div id="scoreCardWrapper">
-                <ScoreCard turn={turn} />
+                <ScoreCard turn={turn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} />
             </div>
         </div>
     </>

@@ -5,6 +5,7 @@ import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
 // game logic
+  // reset board on refresh confirm
   // new game screen logic
   // game screen logic
     // game grid logic
@@ -24,6 +25,9 @@ function App() {
   const [turn, setTurn] = useState('X')
   const [xArray, setXArray] = useState([])
   const [oArray, setOArray] = useState([])
+  const [xScore, setXScore] = useState(0)
+  const [oScore, setOScore] = useState(0)
+  const [ties, setTies] = useState(0)
 
   
   function playerChoice(selection){
@@ -38,8 +42,6 @@ function App() {
     setTurn(newPlayer)
   }
 
-  
-
   return (
     <div className="App" id='app'>
       <div id='mainWrapper' className='flex justify-center bg-darkNavy'>
@@ -48,7 +50,7 @@ function App() {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn turn={turn} changeTurn={changeTurn}   />
+            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} />
           </div>
           <div id='modulesWrapper' className=''>
             <Modules />
