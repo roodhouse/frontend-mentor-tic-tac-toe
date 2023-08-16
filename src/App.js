@@ -4,6 +4,8 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
+// bug: game loops through after a selection is made several times
+
 // game logic
   // reset board on refresh confirm
   // new game screen logic
