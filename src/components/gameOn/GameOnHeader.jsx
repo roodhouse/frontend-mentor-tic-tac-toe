@@ -5,7 +5,7 @@ import Refresh from './gameOnHeader/Refresh'
 
 function GameOnHeader({turn}) {
 
-
+    
     // On click of the refresh button
     let refreshWrapper = document.getElementById('refreshWrapper')
     // if refreshWrapper is not there then we are on the main screen
