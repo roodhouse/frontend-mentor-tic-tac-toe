@@ -1,6 +1,11 @@
 import React from 'react'
 
-function ScoreCard() {
+function ScoreCard({turn}) {
+
+    // logic to determine which color is you and which color is cpu
+    // logic to keep track of score
+
+    console.log('from scorecard ', turn)
   return (
     <>
         <div id="scoreCardContainer" className='flex justify-between'>

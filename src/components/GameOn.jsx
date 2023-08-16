@@ -14,7 +14,7 @@ function GameOn({turn, changeTurn}) {
                 <GameGrid turn={turn} changeTurn={changeTurn} />
             </div>
             <div id="scoreCardWrapper">
-                <ScoreCard />
+                <ScoreCard turn={turn} />
             </div>
         </div>
     </>
