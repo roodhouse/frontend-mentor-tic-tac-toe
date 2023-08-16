@@ -4,7 +4,6 @@ function Turn({turn}) {
   
   useEffect(() => {
     let turnMark = document.getElementById('turnMark')
-    console.log('the turn changed')
     if (turn === 'X') {
       turnMark.style.backgroundImage = 'url("./assets/choiceX.svg")'
     } else {

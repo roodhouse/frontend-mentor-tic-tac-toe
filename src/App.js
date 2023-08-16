@@ -8,9 +8,7 @@ import Modules from './components/Modules';
   // new game screen logic
   // game screen logic
     // game grid logic
-      // hover logic
     // score button logic, who is x, and o, competition is cpu or human
-    // on hover logic, which outline to show
 
 // game multiplayer designs
   // lost module
