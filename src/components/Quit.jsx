@@ -1,25 +1,27 @@
 import React from 'react'
 
-function Quit({ xAarry, xScore, oScore, ties, reset }) {
+function Quit({ xAarry, xScore, oScore, ties, reset, setTurn }) {
 
-  // let quit = document.getElementById('wonQuitWrapper')
-  // quit.addEventListener('click', () => {
-  //   console.log(xAarry)
-  // })
-
-  const handleClick = (e) => {
+    const handleClick = (e) => {
     // reset the score to 0
-    console.log(e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement)
     reset(0,0,0)
     // hide the gamegrid
-    // document.getElementById('gameOnWrapper').classList.add('hidden')
+    document.getElementById('gameOnWrapper').classList.add('hidden')
     // hide the module parent
-    // document.getElementById('modulesContainer').classList.add('hidden')
-    // hide modules --- > need to find the current module and then hide it 
-    let parentModule = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement
-    parentModule.classlist.add('hidden')
+    document.getElementById('modulesContainer').classList.add('hidden')
+    // hide modules
+    let wonMod = document.getElementById('wonModuleWrapper')
+    let lostMod = document.getElementById('lostModuleWrapper')
+    let restartMod = document.getElementById('restartModuleWrapper')
+    let tieMod = document.getElementById('tieModuleWrapper')
+    let modArray = [wonMod, lostMod, restartMod, tieMod]
+    modArray.forEach((mod) => {
+      if (mod.style.display !== 'none') {
+        mod.classList.add('hidden')
+      }
+    })
     // display the newgame screen
-    // document.getElementById('newGameWrapper').classList.remove('hidden')
+    document.getElementById('newGameWrapper').classList.remove('hidden')
   }
 
   return (

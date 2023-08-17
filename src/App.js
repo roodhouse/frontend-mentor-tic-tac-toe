@@ -6,16 +6,9 @@ import Modules from './components/Modules';
 
 // bug 1: on click of refresh and confirm if the turn is O then the new game starts as O turn
 
-// game logic
-  // game screen logic
-    // game grid logic
-      // make function to increment
-        // update function logic to only increment after a win or tie is determine
-          // create a way to win array
-            // then if either the x or o array include the ways to win then its a win
   // module logic
 
-// game multiplayer designs
+// game multiplayer designs & logic
   // lost module
   // won module
   // restart module
@@ -31,8 +24,21 @@ function App() {
   const [xScore, setXScore] = useState(0)
   const [oScore, setOScore] = useState(0)
   const [ties, setTies] = useState(0)
+  const [restarted, setRestarted] = useState(false)
 
-  
+  function reset(x, o, t) {
+    setXScore(x)
+    setOScore(o)
+    setTies(t)
+    setTurn('X')
+    setRestarted(true)
+
+    // reset the restarted state back to false
+    setTimeout(() => {
+      setRestarted(false)
+    }, 0)
+  }
+
   function playerChoice(selection){
     setChoice(selection)
   }
@@ -43,12 +49,6 @@ function App() {
 
   function changeTurn(newPlayer) {
     setTurn(newPlayer)
-  }
-
-  function reset(x, o, t) {
-    setXScore(x)
-    setOScore(o)
-    setTies(t)
   }
 
   let ways2win = 
@@ -63,12 +63,11 @@ function App() {
       dia2: 'square2,square4,square6'
     }
 
+  // logic for x win
   let xArrayString = xArray.toString()
   // Convert xArrayString to an array of individual items
   let xArrayItems = xArrayString.split(',');
-
   // Check if any of the winning combinations are present in xArrayItems
-
   // Object.values(ways2win): 
     // This retrieves an array containing the values (combinations of squares) from the ways2win object. 
     // Each value is a string representing a winning combination of square IDs.
@@ -84,10 +83,9 @@ function App() {
   // xArrayItems.includes(item): 
     // This checks if the current square ID (item) exists in the xArrayItems array, 
     // which contains the individual square IDs from the xArray.
-
   let xWinner = Object.values(ways2win).some(combination =>
   combination.split(',').every(item => xArrayItems.includes(item))
-);
+  );
 
 if (xWinner) {
   console.log('winner');
@@ -104,16 +102,29 @@ if (xWinner) {
   moduleContainer.classList.remove('hidden')
   wonModule.classList.remove('hidden')
 }
-  
-  // increment o score
-  useEffect(() => {
-    function roundOver() {
-      if (oArray.length > 0) {
-        setOScore(oScore + 1)
-      }
+
+  // logic for o win
+  let oArrayString = oArray.toString()
+  let oArrayItems = oArrayString.split(',');
+  let oWinner = Object.values(ways2win).some(combination =>
+    combination.split(',').every(item => oArrayItems.includes(item))
+    );
+
+    if (oWinner) {
+      console.log('o winner');
+      console.log(oArray)
+      // set score
+      setOScore(oScore + 1)
+      // dump array
+      setXArray([])
+      setOArray([])
+      // bring up winner module
+      let moduleContainer = document.getElementById('modulesContainer')
+      let lostModule = document.getElementById('lostModuleWrapper')
+      // display the won module
+      moduleContainer.classList.remove('hidden')
+      lostModule.classList.remove('hidden')
     }
-    roundOver()
-  },[oArray.length])
 
   // increment tie count
   useEffect(() => {
@@ -133,7 +144,6 @@ if (xWinner) {
     setOArray([...oArray, click])
   }
 
-
   return (
     <div className="App" id='app'>
       <div id='mainWrapper' className='flex justify-center bg-darkNavy'>
@@ -142,12 +152,11 @@ if (xWinner) {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} />
+            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} />
           </div>
           <div id='modulesWrapper' className=''>
-            <Modules xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} />
+            <Modules xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} />
           </div>
-
         </div>
       </div>
     </div>
