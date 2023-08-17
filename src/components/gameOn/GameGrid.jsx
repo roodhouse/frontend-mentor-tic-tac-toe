@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import SquareContainer from './gameGrid/SquareContainer'
 
-function GameGrid({turn, changeTurn, roundOver, xArray, oArray, playerXarray, playerOarray}) {
+function GameGrid({turn, changeTurn, xArray, oArray, playerXarray, playerOarray}) {
 
   return (
     <>

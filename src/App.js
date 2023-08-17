@@ -4,10 +4,13 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
+// bug 1: on click of refresh and confirm if the turn is O then the new game starts as O turn
+
 // game logic
   // game screen logic
     // game grid logic
       // make function to increment
+        // update function logic to only increment after a win or tie is determine
   // module logic
 
 // game multiplayer designs
@@ -40,19 +43,45 @@ function App() {
     setTurn(newPlayer)
   }
 
-  function roundOver(result) {
-    if (result === 'X') {
-      let score = xScore
-      setXScore(score++)
+  // Increment scores
+  // increment x score
+  useEffect(() => {
+    function roundOver() {
+      if (xArray.length > 0) {
+        setXScore(xScore + 1)
+      } 
     }
-  }
+  
+    roundOver()
+
+  },[xArray.length])
+
+  // increment o score
+  useEffect(() => {
+    function roundOver() {
+      if (oArray.length > 0) {
+        setOScore(oScore + 1)
+      }
+    }
+    roundOver()
+  },[oArray.length])
+
+  // increment tie count
+  useEffect(() => {
+    function roundOver() {
+      if (xArray.length === 1 && oArray.length === 1) {
+        setTies(ties + 1)
+      }
+    }
+    roundOver()
+  },[xArray.length, oArray.length])
 
   function playerXarray(click) {
     setXArray([...xArray, click])
   }
 
   function playerOarray(click) {
-    setXArray([...oArray, click])
+    setOArray([...oArray, click])
   }
 
   console.log(`Player x: ${xArray}`)
@@ -67,7 +96,7 @@ function App() {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} roundOver={roundOver} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} />
+            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} />
           </div>
           <div id='modulesWrapper' className=''>
             <Modules />
