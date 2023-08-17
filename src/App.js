@@ -30,6 +30,7 @@ function App() {
   const [oScore, setOScore] = useState(0)
   const [ties, setTies] = useState(0)
   const [restarted, setRestarted] = useState(false)
+  const [newRound, setNewRound] = useState(false)
 
   function reset(x, o, t) {
     setXScore(x)
@@ -41,6 +42,16 @@ function App() {
     // reset the restarted state back to false
     setTimeout(() => {
       setRestarted(false)
+    }, 0)
+  }
+
+  function beginNewRound() {
+    setTurn('X')
+    setNewRound(true)
+
+    // reset the new round state back to false
+    setTimeout(() => {
+      setNewRound(false)
     }, 0)
   }
 
@@ -168,7 +179,7 @@ if (xWinner) {
             <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} />
           </div>
           <div id='modulesWrapper' className=''>
-            <Modules xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} />
+            <Modules xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} beginNewRound={beginNewRound} />
           </div>
         </div>
       </div>
