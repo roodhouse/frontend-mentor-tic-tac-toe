@@ -4,7 +4,7 @@ import Won from './theModules/Won'
 import Restart from './theModules/Restart'
 import Tie from './theModules/Tie'
 
-function Modules() {
+function Modules({ xArray, xScore, oScore, ties, reset }) {
   return (
       <>
         <div id="modulesContainer" className='hidden w-full flex justify-center items-center'>
@@ -13,7 +13,7 @@ function Modules() {
                 <Lost />
             </div>
             <div id="wonModuleWrapper" className='hidden w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
-                <Won />
+                <Won xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} />
             </div>
             <div id="restartModuleWrapper" className='hidden w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
                 <Restart />

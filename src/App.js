@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
@@ -45,6 +45,12 @@ function App() {
     setTurn(newPlayer)
   }
 
+  function reset(x, o, t) {
+    setXScore(x)
+    setOScore(o)
+    setTies(t)
+  }
+
   let ways2win = 
     {
       row1: 'square0,square1,square2',
@@ -79,14 +85,25 @@ function App() {
     // This checks if the current square ID (item) exists in the xArrayItems array, 
     // which contains the individual square IDs from the xArray.
 
-  let isWinner = Object.values(ways2win).some(combination =>
+  let xWinner = Object.values(ways2win).some(combination =>
   combination.split(',').every(item => xArrayItems.includes(item))
 );
 
-if (isWinner) {
+if (xWinner) {
   console.log('winner');
+  console.log(xArray)
+  // set score
+  setXScore(xScore + 1)
+  // dump array
+  setXArray([])
+  setOArray([])
+  // bring up winner module
+  let moduleContainer = document.getElementById('modulesContainer')
+  let wonModule = document.getElementById('wonModuleWrapper')
+  // display the won module
+  moduleContainer.classList.remove('hidden')
+  wonModule.classList.remove('hidden')
 }
-
   
   // increment o score
   useEffect(() => {
@@ -116,12 +133,6 @@ if (isWinner) {
     setOArray([...oArray, click])
   }
 
-  console.log(`Player x: ${xArray}`)
-
-  console.log(typeof xArray)
-  console.log(xArrayString)
-
-  console.log(`Player o: ${oArray}`)
 
   return (
     <div className="App" id='app'>
@@ -134,7 +145,7 @@ if (isWinner) {
             <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} />
           </div>
           <div id='modulesWrapper' className=''>
-            <Modules />
+            <Modules xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} />
           </div>
 
         </div>
