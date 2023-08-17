@@ -3,7 +3,7 @@ import WonHeader from './won/WonHeader'
 import WonWinnersCircle from './won/WonWinnersCircle'
 import WonButtons from './won/WonButtons'
 
-function Won() {
+function Won({ xAarry, xScore, oScore, ties, reset, setTurn }) {
   return (
     <>
         <div id="wonContainer" className='bg-semiDarkNavy pt-10 pb-12 px-12'>
@@ -14,7 +14,7 @@ function Won() {
                 <WonWinnersCircle />
             </div>
             <div id="wonButtons">
-                <WonButtons />
+                <WonButtons xAarry={xAarry} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} />
             </div>
         </div>
     </>

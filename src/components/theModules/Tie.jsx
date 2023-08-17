@@ -3,7 +3,7 @@ import TieHeader from './tie/TieHeader'
 import TieButtons from './tie/TieButtons'
 
 
-function Tie() {
+function Tie({ reset }) {
   return (
     <>
         <div id="tieContainer" className='bg-semiDarkNavy pt-10 pb-12 px-12'>
@@ -11,7 +11,7 @@ function Tie() {
                 <TieHeader />
             </div>
             <div id="tieButtons">
-                <TieButtons />
+                <TieButtons reset={reset} />
             </div>
         </div>
     </>
