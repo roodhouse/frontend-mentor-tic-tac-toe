@@ -19,7 +19,7 @@ function Modules({ xArray, xScore, oScore, ties, reset, setTurn }) {
                 <Restart />
             </div>
             <div id="tieModuleWrapper" className='hidden w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
-                <Tie />
+                <Tie reset={reset} />
             </div>
         </div>
     </>

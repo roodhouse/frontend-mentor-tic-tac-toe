@@ -7,6 +7,11 @@ import Modules from './components/Modules';
 // bug 1: on click of refresh and confirm if the turn is O then the new game starts as O turn
 
   // module logic
+    // next round logic
+      // win
+      // loss
+      // tie
+    // restart logic..
 
 // game multiplayer designs & logic
   // lost module
@@ -131,6 +136,14 @@ if (xWinner) {
     function roundOver() {
       if (xArray.length === 5 && oArray.length === 4) {
         setTies(ties + 1)
+        setXArray([])
+        setOArray([])
+        // bring up tie module
+        let moduleContainer = document.getElementById('modulesContainer')
+        let tieModule = document.getElementById('tieModuleWrapper')
+        // display the won module
+        moduleContainer.classList.remove('hidden')
+        tieModule.classList.remove('hidden')
       }
     }
     roundOver()
