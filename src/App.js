@@ -4,13 +4,6 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
-
-
-// module logic
-    // restart logic..
-      // bug 1: on click of refresh and confirm if the turn is O then the new game starts as O turn
-      // bug 2: restart current game should only clear the board not reset the entire game and bring up the new game screen
-
 // game multiplayer designs & logic
   // lost module
   // won module
@@ -68,6 +61,8 @@ function App() {
   function beginNewRound() {
     setTurn('X')
     setNewRound(true)
+    setXArray([])
+    setOArray([])
     // reset the new round state back to false
     setTimeout(() => {
       setNewRound(false)
@@ -179,7 +174,7 @@ if (xWinner) {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} newRound={newRound} />
+            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} newRound={newRound} beginNewRound={beginNewRound} />
           </div>
           <div id='modulesWrapper' className=''>
             <Modules xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} beginNewRound={beginNewRound} />
