@@ -4,12 +4,6 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
-// game multiplayer designs & logic
-  // lost module
-  // won module
-  // restart module
-  // tied module
-
 // vs computer logic
 
 // save to local storage
@@ -115,15 +109,46 @@ if (xWinner) {
   // dump array
   setXArray([])
   setOArray([])
-  // bring up winner module
-  let moduleContainer = document.getElementById('modulesContainer')
-  let wonModule = document.getElementById('wonModuleWrapper')
-  // display the won module
-  moduleContainer.classList.remove('hidden')
-  wonModule.classList.remove('hidden')
 }
 
-  // logic for o win
+useEffect(() => {
+    let moduleContainer = document.getElementById('modulesContainer')
+    let wonModule = document.getElementById('wonModuleWrapper')
+    let lostModule = document.getElementById('lostModuleWrapper')
+
+    if (theCompetition == 'CPU' ) {
+      if (xScore > 0) {
+        if (choice === 'X') {
+          // display the won module
+          moduleContainer.classList.remove('hidden')
+          wonModule.classList.remove('hidden')
+        } else if (choice === 'O') {
+          // display the lost module
+          console.log('lost....')
+          moduleContainer.classList.remove('hidden')
+          lostModule.classList.remove('hidden')
+        }
+      }
+    } else if (theCompetition === 'Human'){
+      if (xScore > 0) {
+        if (choice === 'X') {
+          // display the won module
+          moduleContainer.classList.remove('hidden')
+          wonModule.classList.remove('hidden')
+          let winnerText = document.getElementById('whoWon')
+          winnerText.innerHTML = 'PLAYER 1 WINS!'
+        } else if (choice === 'O') {
+          // display the won module
+          moduleContainer.classList.remove('hidden')
+          wonModule.classList.remove('hidden')
+          let winnerText = document.getElementById('whoWon')
+          winnerText.innerHTML = 'PLAYER 2 WINS!'
+        }
+      }
+    }
+},[xScore])
+
+  // logic for o win or loss
   let oArrayString = oArray.toString()
   let oArrayItems = oArrayString.split(',');
   let oWinner = Object.values(ways2win).some(combination =>
@@ -138,13 +163,45 @@ if (xWinner) {
       // dump array
       setXArray([])
       setOArray([])
-      // bring up winner module
+    } 
+
+    useEffect(() => {
       let moduleContainer = document.getElementById('modulesContainer')
+      let wonModule = document.getElementById('wonModuleWrapper')
       let lostModule = document.getElementById('lostModuleWrapper')
-      // display the won module
-      moduleContainer.classList.remove('hidden')
-      lostModule.classList.remove('hidden')
-    }
+      
+      if (theCompetition === 'CPU') {
+        if (oScore > 0) {
+          if (choice === 'O') {
+            // display the won module
+            moduleContainer.classList.remove('hidden')
+            wonModule.classList.remove('hidden')
+          } else if (choice === 'X') {
+            // display the lost module
+            console.log('lost....')
+            moduleContainer.classList.remove('hidden')
+            lostModule.classList.remove('hidden')
+          }
+        } 
+      } else if (theCompetition === 'Human'){
+        if (oScore > 0) {
+          if (choice === 'O') {
+            // display the won module
+            moduleContainer.classList.remove('hidden')
+            wonModule.classList.remove('hidden')
+            let winnerText = document.getElementById('whoWon')
+            winnerText.innerHTML = 'PLAYER 1 WINS!'
+          } else if (choice === 'X') {
+            // display the won module
+            moduleContainer.classList.remove('hidden')
+            wonModule.classList.remove('hidden')
+            let winnerText = document.getElementById('whoWon')
+            winnerText.innerHTML = 'PLAYER 2 WINS!'
+          }
+        }
+      }
+
+    },[oScore])
 
   // increment tie count
   useEffect(() => {
@@ -163,8 +220,6 @@ if (xWinner) {
     }
     roundOver()
   },[xArray.length, oArray.length])
-
-  
 
   return (
     <div className="App" id='app'>

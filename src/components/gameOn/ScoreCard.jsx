@@ -8,10 +8,22 @@ function ScoreCard({turn, theCompetition, choice, xScore, oScore, ties}) {
             <div id="xScoreContainer" className='w-[96px] h-16 rounded-[10px] bg-lightBlue px-5 py-3 md:w-[140px] md:h-[72px]'>
                 <div id="xWho" className='text-darkNavy text-center text-xs font-medium leading-normal tracking-[0.75px] md:text-sm md:tracking-[0.875px]'>
                     <p>X <span id='theX'>{
-                        choice === 'X' ? (
-                            '(YOU)'
+                        theCompetition === 'CPU' ? (
+                            choice === 'X' ? (
+                                '(YOU)'
+                            ) : (
+                                '(CPU)'
+                            )
                         ) : (
-                            '(CPU)'
+                            theCompetition === 'Human' ? (
+                                choice === 'X' ? (
+                                    '(P1)'
+                                ) : (
+                                    '(P2)'
+                                )
+                            ) : (
+                                ''
+                            )
                         )
                     }</span></p>
                 </div>
@@ -30,10 +42,22 @@ function ScoreCard({turn, theCompetition, choice, xScore, oScore, ties}) {
             <div id="oScoreContainer" className='w-[96px] h-16 rounded-[10px] bg-lightYellow px-5 py-3 md:w-[140px] md:h-[72px]'>
                 <div id='oWho' className='text-darkNavy text-center text-xs font-medium leading-normal tracking-[0.75px] md:text-sm md:tracking-[0.875px]'>
                     <p>O <span id='theO'>{
-                        choice === 'O' ? (
-                            '(YOU)'
+                        theCompetition === 'CPU' ? (
+                            choice === 'O' ? (
+                                '(YOU)'
+                            ) : (
+                                '(CPU'
+                            )
                         ) : (
-                            '(CPU)'
+                            theCompetition === 'Human' ? (
+                                choice === 'O' ? (
+                                    '(P1)'
+                                ) : (
+                                    '(P2)'
+                                )
+                            ) : (
+                                ''
+                            )
                         )
                     }</span></p>
                 </div>
