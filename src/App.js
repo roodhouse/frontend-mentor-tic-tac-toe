@@ -5,9 +5,6 @@ import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
 // game multiplayer designs & logic
-  // loigc for who is what is off
-    // losing as O brings up the wrong module
-    // losing as X brings up the wrong module
 
   // lost module
   // won module
@@ -194,8 +191,6 @@ useEffect(() => {
     }
     roundOver()
   },[xArray.length, oArray.length])
-
-  
 
   return (
     <div className="App" id='app'>
