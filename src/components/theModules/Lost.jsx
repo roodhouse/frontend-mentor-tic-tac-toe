@@ -3,7 +3,7 @@ import LostHeader from './lost/LostHeader'
 import LostWinnersCircle from './lost/LostWinnersCircle'
 import LostButtons from './lost/LostButtons'
 
-function Lost({ reset }) {
+function Lost({ reset, beginNewRound }) {
   return (
     <>
         <div id="lostContainer" className='bg-semiDarkNavy pt-10 pb-12 px-12'>
@@ -14,7 +14,7 @@ function Lost({ reset }) {
                 <LostWinnersCircle />
             </div>
             <div id="lostButtons">
-                <LostButtons reset={reset} />
+                <LostButtons reset={reset} beginNewRound={beginNewRound} />
             </div>
         </div>
     </>

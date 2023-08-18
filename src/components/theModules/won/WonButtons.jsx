@@ -2,7 +2,7 @@ import React from 'react'
 import Quit from '../../Quit'
 import Next from '../../Next'
 
-function WonButtons({ xArray, xScore, oScore, ties, reset, setTurn }) {
+function WonButtons({ xArray, xScore, oScore, ties, reset, setTurn, beginNewRound }) {
 
   return (
     <>
@@ -11,7 +11,7 @@ function WonButtons({ xArray, xScore, oScore, ties, reset, setTurn }) {
                 <Quit xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} />
             </div>
             <div id="wonNextRoundWrapper">
-                <Next />
+                <Next beginNewRound={beginNewRound} />
             </div>
         </div>
     </>

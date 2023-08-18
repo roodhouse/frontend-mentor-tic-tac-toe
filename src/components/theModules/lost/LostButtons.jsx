@@ -2,7 +2,7 @@ import React from 'react'
 import Quit from '../../Quit'
 import Next from '../../Next'
 
-function LostButtons({ reset }) {
+function LostButtons({ reset, beginNewRound }) {
   return (
     <>
         <div id="lostButtonsContainer" className='flex justify-center'>
@@ -10,7 +10,7 @@ function LostButtons({ reset }) {
                 <Quit reset={reset}  />
             </div>
             <div id="lostNextRoundWrapper">
-                <Next />
+                <Next beginNewRound={beginNewRound} />
             </div>
         </div>
     </>

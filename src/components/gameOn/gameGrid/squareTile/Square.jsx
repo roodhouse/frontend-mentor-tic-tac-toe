@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
 
-function Square({turn, changeTurn, index, playerXarray, playerOarray, restarted }) {
+function Square({turn, changeTurn, index, playerXarray, playerOarray, restarted, newRound }) {
     const [backgroundImage, setBackgroundImage] = useState('')
 
     useEffect(() => {
-        if (restarted) {
+        if (restarted || newRound) {
             setBackgroundImage('')
         }
-    },[restarted])
+    },[restarted, newRound])
     
     const handleClick = (e) => {
         if ( backgroundImage === '' ) {

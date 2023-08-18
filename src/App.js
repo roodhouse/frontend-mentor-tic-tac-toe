@@ -5,9 +5,11 @@ import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
 // bug 1: on click of refresh and confirm if the turn is O then the new game starts as O turn
+// bug 2: restart current game should only clear the board not reset the entire game and bring up the new game screen
 
   // module logic
     // next round logic
+    // continue to mimc the quit function
       // win
       // loss
       // tie
@@ -30,6 +32,7 @@ function App() {
   const [oScore, setOScore] = useState(0)
   const [ties, setTies] = useState(0)
   const [restarted, setRestarted] = useState(false)
+  const [newRound, setNewRound] = useState(false)
 
   function reset(x, o, t) {
     setXScore(x)
@@ -41,6 +44,16 @@ function App() {
     // reset the restarted state back to false
     setTimeout(() => {
       setRestarted(false)
+    }, 0)
+  }
+
+  function beginNewRound() {
+    setTurn('X')
+    setNewRound(true)
+
+    // reset the new round state back to false
+    setTimeout(() => {
+      setNewRound(false)
     }, 0)
   }
 
@@ -165,10 +178,10 @@ if (xWinner) {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} />
+            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} newRound={newRound} />
           </div>
           <div id='modulesWrapper' className=''>
-            <Modules xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} />
+            <Modules xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} beginNewRound={beginNewRound} />
           </div>
         </div>
       </div>
