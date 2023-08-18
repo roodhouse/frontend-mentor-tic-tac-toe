@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
-function WonWinnersCircle() {
+function WonWinnersCircle({xScore}) {
+  useEffect(() => {
+    console.log('x won')
+  },[xScore])
   return (
     <>
         <div id="WonWinnersCircleContainer" className='flex items-center justify-center'>

@@ -5,6 +5,8 @@ import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
 // game multiplayer designs & logic
+  // loigc for who is what is off
+      // x run occurs on immediate load, need to stop it
   // lost module
   // won module
   // restart module
