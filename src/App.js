@@ -34,41 +34,48 @@ function App() {
   const [restarted, setRestarted] = useState(false)
   const [newRound, setNewRound] = useState(false)
 
+  // state functions
+  function playerChoice(selection){
+    setChoice(selection)
+  }
+  function competitionChoice(selection) {
+    setTheCompetition(selection)
+  }
+  function changeTurn(newPlayer) {
+    setTurn(newPlayer)
+  }
+  function playerXarray(click) {
+    setXArray([...xArray, click])
+  }
+  function playerOarray(click) {
+    setOArray([...oArray, click])
+  }
+
+  // when game is cancelled 
   function reset(x, o, t) {
     setXScore(x)
     setOScore(o)
     setTies(t)
     setTurn('X')
     setRestarted(true)
-
     // reset the restarted state back to false
     setTimeout(() => {
       setRestarted(false)
     }, 0)
   }
 
+  // when round is begun
   function beginNewRound() {
     setTurn('X')
     setNewRound(true)
-
     // reset the new round state back to false
     setTimeout(() => {
       setNewRound(false)
     }, 0)
   }
 
-  function playerChoice(selection){
-    setChoice(selection)
-  }
-
-  function competitionChoice(selection) {
-    setTheCompetition(selection)
-  }
-
-  function changeTurn(newPlayer) {
-    setTurn(newPlayer)
-  }
-
+  
+// win logic
   let ways2win = 
     {
       row1: 'square0,square1,square2',
@@ -162,13 +169,7 @@ if (xWinner) {
     roundOver()
   },[xArray.length, oArray.length])
 
-  function playerXarray(click) {
-    setXArray([...xArray, click])
-  }
-
-  function playerOarray(click) {
-    setOArray([...oArray, click])
-  }
+  
 
   return (
     <div className="App" id='app'>

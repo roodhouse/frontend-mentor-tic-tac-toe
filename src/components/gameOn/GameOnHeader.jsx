@@ -5,6 +5,7 @@ import Refresh from './gameOnHeader/Refresh'
 
 function GameOnHeader({turn}) {
 
+    // ***** need to refactor this  ***** and fix bugs mentioned in app.js
     
     // On click of the refresh button
     let refreshWrapper = document.getElementById('refreshWrapper')
