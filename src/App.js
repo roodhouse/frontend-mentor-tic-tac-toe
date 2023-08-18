@@ -4,22 +4,22 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
-// bug 1: on click of refresh and confirm if the turn is O then the new game starts as O turn
-// bug 2: restart current game should only clear the board not reset the entire game and bring up the new game screen
 
-  // module logic
-    // next round logic
-    // continue to mimc the quit function
-      // win
-      // loss
-      // tie
+
+// module logic
     // restart logic..
+      // bug 1: on click of refresh and confirm if the turn is O then the new game starts as O turn
+      // bug 2: restart current game should only clear the board not reset the entire game and bring up the new game screen
 
 // game multiplayer designs & logic
   // lost module
   // won module
   // restart module
   // tied module
+
+// vs computer logic
+
+// save to local storage
 
 function App() {
 
