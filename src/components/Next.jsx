@@ -4,6 +4,20 @@ function Next({ beginNewRound }) {
 
   const handleClick = (e) => {
       console.log('boom')
+    // hide the module parent
+    document.getElementById('modulesContainer').classList.add('hidden')
+    // hide modules
+    let wonMod = document.getElementById('wonModuleWrapper')
+    let lostMod = document.getElementById('lostModuleWrapper')
+    let restartMod = document.getElementById('restartModuleWrapper')
+    let tieMod = document.getElementById('tieModuleWrapper')
+    let modArray = [wonMod, lostMod, restartMod, tieMod]
+    modArray.forEach((mod) => {
+      if (mod.style.display !== 'none') {
+        mod.classList.add('hidden')
+      }
+    })
+    beginNewRound()
   }
 
   return (

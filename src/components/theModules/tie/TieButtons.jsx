@@ -2,7 +2,7 @@ import React from 'react'
 import Quit from '../../Quit'
 import Next from '../../Next'
 
-function TieButtons({ reset }) {
+function TieButtons({ reset, beginNewRound }) {
   return (
     <>
         <div id="tieButtonsContainer" className='flex justify-center'>
@@ -10,7 +10,7 @@ function TieButtons({ reset }) {
                 <Quit reset={reset} />
             </div>
             <div id="tieNextRoundWrapper">
-                <Next />
+                <Next beginNewRound={beginNewRound} />
             </div>
         </div>
     </>
