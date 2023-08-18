@@ -4,13 +4,6 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
-// game multiplayer designs & logic
-
-  // lost module
-  // won module
-  // restart module
-  // tied module
-
 // vs computer logic
 
 // save to local storage
@@ -123,16 +116,34 @@ useEffect(() => {
     let wonModule = document.getElementById('wonModuleWrapper')
     let lostModule = document.getElementById('lostModuleWrapper')
 
-    if (xScore > 0) {
-      if (choice === 'X') {
-        // display the won module
-        moduleContainer.classList.remove('hidden')
-        wonModule.classList.remove('hidden')
-      } else if (choice === 'O') {
-        // display the lost module
-        console.log('lost....')
-        moduleContainer.classList.remove('hidden')
-        lostModule.classList.remove('hidden')
+    if (theCompetition == 'CPU' ) {
+      if (xScore > 0) {
+        if (choice === 'X') {
+          // display the won module
+          moduleContainer.classList.remove('hidden')
+          wonModule.classList.remove('hidden')
+        } else if (choice === 'O') {
+          // display the lost module
+          console.log('lost....')
+          moduleContainer.classList.remove('hidden')
+          lostModule.classList.remove('hidden')
+        }
+      }
+    } else if (theCompetition === 'Human'){
+      if (xScore > 0) {
+        if (choice === 'X') {
+          // display the won module
+          moduleContainer.classList.remove('hidden')
+          wonModule.classList.remove('hidden')
+          let winnerText = document.getElementById('whoWon')
+          winnerText.innerHTML = 'PLAYER 1 WINS!'
+        } else if (choice === 'O') {
+          // display the won module
+          moduleContainer.classList.remove('hidden')
+          wonModule.classList.remove('hidden')
+          let winnerText = document.getElementById('whoWon')
+          winnerText.innerHTML = 'PLAYER 2 WINS!'
+        }
       }
     }
 },[xScore])
@@ -159,18 +170,36 @@ useEffect(() => {
       let wonModule = document.getElementById('wonModuleWrapper')
       let lostModule = document.getElementById('lostModuleWrapper')
       
-      if (oScore > 0) {
-        if (choice === 'O') {
-          // display the won module
-          moduleContainer.classList.remove('hidden')
-          wonModule.classList.remove('hidden')
-        } else if (choice === 'X') {
-          // display the lost module
-          console.log('lost....')
-          moduleContainer.classList.remove('hidden')
-          lostModule.classList.remove('hidden')
+      if (theCompetition === 'CPU') {
+        if (oScore > 0) {
+          if (choice === 'O') {
+            // display the won module
+            moduleContainer.classList.remove('hidden')
+            wonModule.classList.remove('hidden')
+          } else if (choice === 'X') {
+            // display the lost module
+            console.log('lost....')
+            moduleContainer.classList.remove('hidden')
+            lostModule.classList.remove('hidden')
+          }
+        } 
+      } else if (theCompetition === 'Human'){
+        if (oScore > 0) {
+          if (choice === 'O') {
+            // display the won module
+            moduleContainer.classList.remove('hidden')
+            wonModule.classList.remove('hidden')
+            let winnerText = document.getElementById('whoWon')
+            winnerText.innerHTML = 'PLAYER 1 WINS!'
+          } else if (choice === 'X') {
+            // display the won module
+            moduleContainer.classList.remove('hidden')
+            wonModule.classList.remove('hidden')
+            let winnerText = document.getElementById('whoWon')
+            winnerText.innerHTML = 'PLAYER 2 WINS!'
+          }
         }
-      } 
+      }
 
     },[oScore])
 
