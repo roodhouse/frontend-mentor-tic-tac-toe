@@ -16,7 +16,7 @@ function Modules({ xArray, xScore, oScore, ties, reset, setTurn, beginNewRound }
                 <Won xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} beginNewRound={beginNewRound} />
             </div>
             <div id="restartModuleWrapper" className='hidden w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
-                <Restart />
+                <Restart beginNewRound={beginNewRound} />
             </div>
             <div id="tieModuleWrapper" className='hidden w-full h-screen absolute top-0 left-0 flex flex-col justify-center'>
                 <Tie reset={reset} beginNewRound={beginNewRound} />

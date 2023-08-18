@@ -4,22 +4,15 @@ import NewGame from './components/NewGame';
 import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
-// bug 1: on click of refresh and confirm if the turn is O then the new game starts as O turn
-// bug 2: restart current game should only clear the board not reset the entire game and bring up the new game screen
-
-  // module logic
-    // next round logic
-    // continue to mimc the quit function
-      // win
-      // loss
-      // tie
-    // restart logic..
-
 // game multiplayer designs & logic
   // lost module
   // won module
   // restart module
   // tied module
+
+// vs computer logic
+
+// save to local storage
 
 function App() {
 
@@ -34,41 +27,50 @@ function App() {
   const [restarted, setRestarted] = useState(false)
   const [newRound, setNewRound] = useState(false)
 
+  // state functions
+  function playerChoice(selection){
+    setChoice(selection)
+  }
+  function competitionChoice(selection) {
+    setTheCompetition(selection)
+  }
+  function changeTurn(newPlayer) {
+    setTurn(newPlayer)
+  }
+  function playerXarray(click) {
+    setXArray([...xArray, click])
+  }
+  function playerOarray(click) {
+    setOArray([...oArray, click])
+  }
+
+  // when game is cancelled 
   function reset(x, o, t) {
     setXScore(x)
     setOScore(o)
     setTies(t)
     setTurn('X')
     setRestarted(true)
-
     // reset the restarted state back to false
     setTimeout(() => {
       setRestarted(false)
     }, 0)
   }
 
+  // when round is begun
   function beginNewRound() {
     setTurn('X')
     setNewRound(true)
-
+    setXArray([])
+    setOArray([])
     // reset the new round state back to false
     setTimeout(() => {
       setNewRound(false)
     }, 0)
   }
 
-  function playerChoice(selection){
-    setChoice(selection)
-  }
-
-  function competitionChoice(selection) {
-    setTheCompetition(selection)
-  }
-
-  function changeTurn(newPlayer) {
-    setTurn(newPlayer)
-  }
-
+  
+// win logic
   let ways2win = 
     {
       row1: 'square0,square1,square2',
@@ -162,13 +164,7 @@ if (xWinner) {
     roundOver()
   },[xArray.length, oArray.length])
 
-  function playerXarray(click) {
-    setXArray([...xArray, click])
-  }
-
-  function playerOarray(click) {
-    setOArray([...oArray, click])
-  }
+  
 
   return (
     <div className="App" id='app'>
@@ -178,7 +174,7 @@ if (xWinner) {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} newRound={newRound} />
+            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} newRound={newRound} beginNewRound={beginNewRound} />
           </div>
           <div id='modulesWrapper' className=''>
             <Modules xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} beginNewRound={beginNewRound} />

@@ -3,7 +3,7 @@ import RestartHeader from './restart/RestartHeader'
 import RestartButtons from './restart/RestartButtons'
 
 
-function Restart() {
+function Restart({beginNewRound}) {
   return (
     <>
         <div id="restartContainer" className='bg-semiDarkNavy pt-10 pb-12 px-12'>
@@ -11,7 +11,7 @@ function Restart() {
                 <RestartHeader />
             </div>
             <div id="restartButtons">
-                <RestartButtons />
+                <RestartButtons beginNewRound={beginNewRound} />
             </div>
         </div>
     </>
