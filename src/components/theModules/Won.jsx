@@ -11,7 +11,7 @@ function Won({ xAarry, xScore, oScore, ties, reset, setTurn, beginNewRound }) {
                 <WonHeader />
             </div>
             <div id="wonWinnersCircleWrapper" className='mb-6 md:mb-8'>
-                <WonWinnersCircle xScore={xScore} />
+                <WonWinnersCircle xScore={xScore} oScore={oScore} />
             </div>
             <div id="wonButtons">
                 <WonButtons xAarry={xAarry} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} beginNewRound={beginNewRound} />

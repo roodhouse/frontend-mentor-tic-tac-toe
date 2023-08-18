@@ -6,7 +6,9 @@ import Modules from './components/Modules';
 
 // game multiplayer designs & logic
   // loigc for who is what is off
-      // x run occurs on immediate load, need to stop it
+    // losing as O brings up the wrong module
+    // losing as X brings up the wrong module
+
   // lost module
   // won module
   // restart module
@@ -117,15 +119,28 @@ if (xWinner) {
   // dump array
   setXArray([])
   setOArray([])
-  // bring up winner module
-  let moduleContainer = document.getElementById('modulesContainer')
-  let wonModule = document.getElementById('wonModuleWrapper')
-  // display the won module
-  moduleContainer.classList.remove('hidden')
-  wonModule.classList.remove('hidden')
 }
 
-  // logic for o win
+useEffect(() => {
+    let moduleContainer = document.getElementById('modulesContainer')
+    let wonModule = document.getElementById('wonModuleWrapper')
+    let lostModule = document.getElementById('lostModuleWrapper')
+
+    if (xScore > 0) {
+      if (choice === 'X') {
+        // display the won module
+        moduleContainer.classList.remove('hidden')
+        wonModule.classList.remove('hidden')
+      } else if (choice === 'O') {
+        // display the lost module
+        console.log('lost....')
+        moduleContainer.classList.remove('hidden')
+        lostModule.classList.remove('hidden')
+      }
+    }
+},[xScore])
+
+  // logic for o win or loss
   let oArrayString = oArray.toString()
   let oArrayItems = oArrayString.split(',');
   let oWinner = Object.values(ways2win).some(combination =>
@@ -140,13 +155,27 @@ if (xWinner) {
       // dump array
       setXArray([])
       setOArray([])
-      // bring up winner module
+    } 
+
+    useEffect(() => {
       let moduleContainer = document.getElementById('modulesContainer')
+      let wonModule = document.getElementById('wonModuleWrapper')
       let lostModule = document.getElementById('lostModuleWrapper')
-      // display the won module
-      moduleContainer.classList.remove('hidden')
-      lostModule.classList.remove('hidden')
-    }
+      
+      if (oScore > 0) {
+        if (choice === 'O') {
+          // display the won module
+          moduleContainer.classList.remove('hidden')
+          wonModule.classList.remove('hidden')
+        } else if (choice === 'X') {
+          // display the lost module
+          console.log('lost....')
+          moduleContainer.classList.remove('hidden')
+          lostModule.classList.remove('hidden')
+        }
+      } 
+
+    },[oScore])
 
   // increment tie count
   useEffect(() => {
