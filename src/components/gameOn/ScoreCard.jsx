@@ -44,7 +44,7 @@ function ScoreCard({turn, theCompetition, choice, xScore, oScore, ties}) {
                     <p>O <span id='theO'>{
                         theCompetition === 'CPU' ? (
                             choice === 'O' ? (
-                                'YOU'
+                                '(YOU)'
                             ) : (
                                 '(CPU'
                             )
