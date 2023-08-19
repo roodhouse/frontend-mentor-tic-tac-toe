@@ -11,7 +11,7 @@ function GameOn({turn, changeTurn, theCompetition, choice, xScore, oScore, ties,
                 <GameOnHeader turn={turn} />
             </div>
             <div id="gameGridWrapper">
-                <GameGrid turn={turn} changeTurn={changeTurn} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} newRound={newRound} />
+                <GameGrid turn={turn} changeTurn={changeTurn} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} newRound={newRound} theCompetition={theCompetition} />
             </div>
             <div id="scoreCardWrapper">
                 <ScoreCard turn={turn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} />

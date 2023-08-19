@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-
-function Square({turn, changeTurn, index, playerXarray, playerOarray, restarted, newRound }) {
+function Square({turn, changeTurn, index, playerXarray, playerOarray, restarted, newRound, theCompetition }) {
     const [backgroundImage, setBackgroundImage] = useState('')
 
     useEffect(() => {
@@ -24,6 +23,7 @@ function Square({turn, changeTurn, index, playerXarray, playerOarray, restarted,
             }
         }
     }
+    
   return (
     <>
         <div id={'square'+index} className={`square w-10 h-10 bg-no-repeat bg-contain md:w-16 md:h-16 hover:bg-[url("./assets/icon-${ turn === 'X' ? 'x' : 'o' }-outline.svg")]`} onClick={handleClick} style={{ backgroundImage : backgroundImage}}/>

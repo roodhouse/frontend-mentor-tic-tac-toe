@@ -5,7 +5,13 @@ import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
 // vs computer logic
-
+  // 
+    // determine who if CPU is X or O and who is going first
+      // if CPU is X then it goes first
+        // randomly select an item from a grid array with a timeout
+          // remove the randomly selected item from the grid array
+        // change the turn to O
+          // when turn changes back to X then 
 // save to local storage
 
 function App() {
