@@ -55,7 +55,7 @@ function Square({turn, changeTurn, index, playerXarray, playerOarray, restarted,
     
   return (
     <>
-        <div id={'square'+index} className={`square w-10 h-10 bg-no-repeat bg-contain md:w-16 md:h-16 hover:bg-[url("./assets/icon-${ turn === 'X' ? 'x' : 'o' }-outline.svg")]`} onClick={handleClick} style={{ backgroundImage : backgroundImage}}/>
+        <div id={'square'+index} className={`square w-10 h-10 bg-no-repeat bg-contain md:w-16 md:h-16 hover:bg-[url(./assets/icon-${ turn === 'X' ? 'x' : 'o' }-outline.svg)]`} onClick={handleClick} style={{ backgroundImage : backgroundImage}}/>
     </>
   )
 }
