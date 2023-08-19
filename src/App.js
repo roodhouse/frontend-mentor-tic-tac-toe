@@ -6,6 +6,7 @@ import Modules from './components/Modules';
 
 // bug 1: hover logic broke somehow
 // vs computer logic
+    // cpu logic for when user is X
   // winning logic
   // lose logic 
   // tie logic
@@ -31,6 +32,7 @@ function App() {
   const [ties, setTies] = useState(0)
   const [restarted, setRestarted] = useState(false)
   const [newRound, setNewRound] = useState(false)
+  const [winner, setWinner] = useState(false)
 
   // state functions
   function playerChoice(selection){
@@ -66,6 +68,7 @@ function App() {
   function beginNewRound() {
     setTurn('X')
     setNewRound(true)
+    setWinner(false)
     setXArray([])
     setOArray([])
     // reset the new round state back to false
@@ -120,6 +123,7 @@ if (xWinner) {
   // dump array
   setXArray([])
   setOArray([])
+  setWinner(true)
 }
 
 useEffect(() => {
@@ -174,6 +178,7 @@ useEffect(() => {
       // dump array
       setXArray([])
       setOArray([])
+      setWinner(true)
     } 
 
     useEffect(() => {
@@ -240,7 +245,7 @@ useEffect(() => {
             <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
-            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} newRound={newRound} beginNewRound={beginNewRound} />
+            <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} newRound={newRound} beginNewRound={beginNewRound} winner={winner} />
           </div>
           <div id='modulesWrapper' className=''>
             <Modules xArray={xArray} xScore={xScore} oScore={oScore} ties={ties} reset={reset} setTurn={setTurn} beginNewRound={beginNewRound} />
