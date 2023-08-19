@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/frontend-mentor-tic-tac-toe/static/css/main.cb142a22.css",
+    "main.js": "/frontend-mentor-tic-tac-toe/static/js/main.b7e52b53.js",
+    "static/media/choiceX-light.svg": "/frontend-mentor-tic-tac-toe/static/media/choiceX-light.673888d698522d0c242a.svg",
+    "static/media/choiceX.svg": "/frontend-mentor-tic-tac-toe/static/media/choiceX.fcc156031fc3876bb14fb755dc380f6b.svg",
+    "index.html": "/frontend-mentor-tic-tac-toe/index.html",
+    "static/media/logo.svg": "/frontend-mentor-tic-tac-toe/static/media/logo.6a3d7c7d71604d60499698d758e297b4.svg",
+    "static/media/choiceO-dark.svg": "/frontend-mentor-tic-tac-toe/static/media/choiceO-dark.2577cc670d7e99330479.svg",
+    "static/media/choiceO.svg": "/frontend-mentor-tic-tac-toe/static/media/choiceO.02d715ecda92cb9ed34f734549ddc416.svg",
+    "static/media/icon-restart.svg": "/frontend-mentor-tic-tac-toe/static/media/icon-restart.5233068679491c1d7f0fb92e28e7953e.svg",
+    "main.cb142a22.css.map": "/frontend-mentor-tic-tac-toe/static/css/main.cb142a22.css.map",
+    "main.b7e52b53.js.map": "/frontend-mentor-tic-tac-toe/static/js/main.b7e52b53.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb142a22.css",
+    "static/js/main.b7e52b53.js"
+  ]
+}
