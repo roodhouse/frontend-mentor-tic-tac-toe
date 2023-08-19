@@ -25,10 +25,16 @@ function GameGrid({turn, changeTurn, xArray, oArray, playerXarray, playerOarray,
           const randomIndex = Math.floor(Math.random() * theGrid.length);
           const randomSelection = theGrid[randomIndex];
           setTimeout(() => {
-            randomSelection.style.backgroundImage = 'url("./assets/icon-x.svg")';
+            if (choice === 'O') {
+              randomSelection.style.backgroundImage = 'url("./assets/icon-x.svg")';
+              playerXarray(randomSelection.id)
+            } else {
+              randomSelection.style.backgroundImage = 'url("./assets/icon-o.svg")';
+              playerOarray(randomSelection.id)
+            }
             console.log('the random selection: ', randomSelection)
-            playerXarray(randomSelection.id)
-            changeTurn('O');
+            
+            changeTurn(turn === 'X' ? 'O' : 'X');
             
             // Create a new array without the selected square
             const newGridArray = theGrid.filter(item => item !== randomSelection);

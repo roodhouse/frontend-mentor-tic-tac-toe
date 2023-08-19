@@ -6,18 +6,8 @@ import Modules from './components/Modules';
 
 // bug 1: hover logic broke somehow
 // vs computer logic
-    // cpu logic for when user is X
-  // winning logic
-  // lose logic 
-  // tie logic
-  // stop cpu from making a move when it game is over
-  // 
-    // determine who if CPU is X or O and who is going first
-      // if CPU is X then it goes first
-        // randomly select an item from a grid array with a timeout
-          // remove the randomly selected item from the grid array
-        // change the turn to O
-          // when turn changes back to X then 
+  // quit during cpu game and a new game has all the cpu pieces still selected
+  
 // save to local storage
 
 function App() {
