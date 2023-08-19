@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function Square({turn, changeTurn, index, playerXarray, playerOarray, restarted, newRound, theCompetition }) {
+function Square({turn, changeTurn, index, playerXarray, playerOarray, restarted, newRound, theCompetition, theGrid }) {
     const [backgroundImage, setBackgroundImage] = useState('')
 
     useEffect(() => {
@@ -12,6 +12,7 @@ function Square({turn, changeTurn, index, playerXarray, playerOarray, restarted,
     const handleClick = (e) => {
         if ( backgroundImage === '' ) {
             console.log(e.target.id)
+            console.log(theGrid)
             if ( turn === 'X' ) {
                 setBackgroundImage('url("./assets/icon-x.svg")')
                 playerXarray(e.target.id)
