@@ -5,19 +5,7 @@ import GameOn from './components/GameOn';
 import Modules from './components/Modules';
 
 // bug 1: hover logic broke somehow
-// vs computer logic
-    // cpu logic for when user is X
-  // winning logic
-  // lose logic 
-  // tie logic
-  // stop cpu from making a move when it game is over
-  // 
-    // determine who if CPU is X or O and who is going first
-      // if CPU is X then it goes first
-        // randomly select an item from a grid array with a timeout
-          // remove the randomly selected item from the grid array
-        // change the turn to O
-          // when turn changes back to X then 
+  
 // save to local storage
 
 function App() {
@@ -116,8 +104,6 @@ function App() {
   );
 
 if (xWinner) {
-  console.log('winner');
-  console.log(xArray)
   // set score
   setXScore(xScore + 1)
   // dump array
@@ -139,7 +125,6 @@ useEffect(() => {
           wonModule.classList.remove('hidden')
         } else if (choice === 'O') {
           // display the lost module
-          console.log('lost....')
           moduleContainer.classList.remove('hidden')
           lostModule.classList.remove('hidden')
         }
@@ -171,8 +156,6 @@ useEffect(() => {
     );
 
     if (oWinner) {
-      console.log('o winner');
-      console.log(oArray)
       // set score
       setOScore(oScore + 1)
       // dump array
@@ -194,7 +177,6 @@ useEffect(() => {
             wonModule.classList.remove('hidden')
           } else if (choice === 'X') {
             // display the lost module
-            console.log('lost....')
             moduleContainer.classList.remove('hidden')
             lostModule.classList.remove('hidden')
           }
@@ -242,7 +224,7 @@ useEffect(() => {
       <div id='mainWrapper' className='flex justify-center bg-darkNavy'>
         <div id='mainContainer' className='max-w-[375px] h-screen bg-darkNavy flex flex-col justify-center items-center px-6 py-[119px] md:max-w-[460px] md:py-[200px]'>
           <div id='newGameWrapper'>
-            <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} />
+            <NewGame playerChoice={playerChoice} competitionChoice={competitionChoice} beginNewRound={beginNewRound} />
           </div>
           <div id='gameOnWrapper' className='hidden'>
             <GameOn turn={turn} changeTurn={changeTurn} theCompetition={theCompetition} choice={choice} xScore={xScore} oScore={oScore} ties={ties} xArray={xArray} oArray={oArray} playerXarray={playerXarray} playerOarray={playerOarray} restarted={restarted} newRound={newRound} beginNewRound={beginNewRound} winner={winner} />
