@@ -20,7 +20,6 @@ function GameGrid({turn, changeTurn, xArray, oArray, playerXarray, playerOarray,
 
     useEffect(() => {
       if (theCompetition === 'CPU' && turn !== choice && !winner && !newRound) {
-        console.log(newRound)
         if (theGrid.length > 0) {
           const randomIndex = Math.floor(Math.random() * theGrid.length);
           const randomSelection = theGrid[randomIndex];
@@ -31,9 +30,7 @@ function GameGrid({turn, changeTurn, xArray, oArray, playerXarray, playerOarray,
             } else {
               randomSelection.style.backgroundImage = 'url("./assets/icon-o.svg")';
               playerOarray(randomSelection.id)
-            }
-            console.log('the random selection: ', randomSelection)
-            
+            }    
             changeTurn(turn === 'X' ? 'O' : 'X');
             
             // Create a new array without the selected square
@@ -43,7 +40,7 @@ function GameGrid({turn, changeTurn, xArray, oArray, playerXarray, playerOarray,
         }
       } else if (newRound) {
         console.log('new round')
-      }
+      } 
     }, [theCompetition, turn, choice, theGrid, winner]);
     // [theCompetition, turn, choice, theGrid, winner]
 
@@ -52,14 +49,14 @@ function GameGrid({turn, changeTurn, xArray, oArray, playerXarray, playerOarray,
     }
 
     useEffect(() => {
-      if (theCompetition === 'CPU' && newRound) {
+      if ((theCompetition === 'CPU' && newRound ) || (theCompetition === 'CPU' && restarted)) {
         let newGrid = Array.from(document.querySelectorAll('.square')) 
         newGrid.forEach((item) => {
           item.style.backgroundImage = ''
         })
         setTheGrid(newGrid)
       }
-    },[newRound, theCompetition])
+    },[newRound, theCompetition, restarted])
     
   return (
     <>
